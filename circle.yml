@@ -1,0 +1,16 @@
+machine:
+
+  java:
+    version: oraclejdk8
+
+dependencies:
+    pre:
+    # Update Android dependent SDK and Tools
+    # That settings need to be synced with Android build settings
+    - echo y | android update sdk --no-ui --all --filter tools,extra-android-m2repository-suppot,android-25
+    - echo y | android update sdk --no-ui --all --filter build-tools-25.0.3
+
+test:
+    override:
+      - ./gradlew assembleDebug
+      - cp -r app/build/outputs $CIRCLE_ARTIFACTS

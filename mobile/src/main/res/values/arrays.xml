@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="entries_list_preference">
+        <item>Black</item>
+        <item>Blue</item>
+        <item>Light Blue</item>
+        <item>Indigo</item>
+    </string-array>
+
+    <string-array name="entry_values_list_preference">
+        <item>Black</item>
+        <item>Blue</item>
+        <item>Light Blue</item>
+        <item>Indigo</item>
+    </string-array>
+</resources>

@@ -1,0 +1,64 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+allprojects {
+
+    repositories {
+        maven { url "https://jitpack.io" }
+        jcenter()
+    }
+}
+
+buildscript {
+
+    repositories {
+        maven { url 'https://maven.google.com' }
+        maven { url 'https://maven.fabric.io/public' }
+        jcenter()
+    }
+
+    dependencies {
+        // NOTE: Do not place your application dependencies here; they belong
+        classpath 'com.android.tools.build:gradle:2.3.3'
+        classpath 'com.getkeepsafe.dexcount:dexcount-gradle-plugin:0.6.1'
+        classpath 'com.google.gms:google-services:3.1.0'
+        classpath 'io.fabric.tools:gradle:1.+'
+        classpath 'me.tatarka:gradle-retrolambda:3.4.0'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.1'
+    }
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// Define versions in a single place
+ext {
+
+    // App dependencies
+    calligraphyVersion = '2.2.0'
+    gsonVersion = '2.8.0'
+    supportLibraryVersion = '25.3.1'
+
+    // 3rd Party
+    butterKnifeVersion = '8.5.1'
+    dagger2Version = '2.8'
+    debugDBVersion = '1.0.0'
+    dexMakerVersion = '1.2'
+    fireBaseVersion = '11.0.0'
+    glideVersion = '3.7.0'
+    greenDaoVersion = '3.2.0'
+    ormLiteVersion = '5.0'
+    rxandroidVersion = '2.0.1'
+    rxjava2Version = '2.0.6'
+    rx2AndroidNetworking = '1.0.0'
+    timberVersion = '4.5.1'
+
+    //Test dependencies
+    junitVersion = '4.12'
+    espressoVersion = '2.2.2'
+    mockitoVersion = '2.7.22'
+}
+
+
+

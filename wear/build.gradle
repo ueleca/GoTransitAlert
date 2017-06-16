@@ -1,0 +1,49 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 25
+    buildToolsVersion '25.0.3'
+
+    buildTypes {
+
+        debug {
+
+            minifyEnabled false
+
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.uele.gotransitalert.android"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+
+    productFlavors {
+
+        mock {
+            applicationIdSuffix = ".mock"
+        }
+
+        prod {
+            applicationIdSuffix = ".prod"
+        }
+    }
+    publishNonDefault true
+}
+
+dependencies {
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.google.android.support:wearable:2.0.0'
+    compile 'com.google.android.gms:play-services-wearable:11.0.0'
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="logo_w_h">100dp</dimen>
+    <dimen name="add_button_margin">16dp</dimen>
+    <dimen name="elevation_low">1dp</dimen>
+    <dimen name="elevation_high">8dp</dimen>
+    <dimen name="feed_item_margin">10dp</dimen>
+    <dimen name="feed_item_padding_top_bottom">20dp</dimen>
+    <dimen name="feed_item_padding_left_right">15dp</dimen>
+    <dimen name="feed_item_profile_pic">50dp</dimen>
+    <dimen name="feed_item_profile_info_padd">10dp</dimen>
+    <dimen name="feed_item_profile_name">15dp</dimen>
+    <dimen name="feed_item_timestamp">13dp</dimen>
+    <dimen name="feed_item_status_pad_left_right">15dp</dimen>
+    <dimen name="feed_item_status_pad_top">13dp</dimen>
+    <dimen name="feed_item_corner_radius">3dp</dimen>
+    <dimen name="feed_item_border_width">1dp</dimen>
+    <dimen name="horizontal_margin">16dp</dimen>
+    <dimen name="large_vertical_spacing">24dp</dimen>
+    <dimen name="small_horizontal_spacing">8dp</dimen>
+    <dimen name="small_vertical_spacing">8dp</dimen>
+    <dimen name="round_button_diameter">48dp</dimen>
+    <dimen name="vertical_margin">16dp</dimen>
+    <dimen name="vertical_spacing">16dp</dimen>
+    <dimen name="xlarge_vertical_spacing">36dp</dimen>
+    <dimen name="spacing_huge">64dp</dimen>
+    <dimen name="app_bar_top_padding">24dp</dimen>
+    <dimen name="drawer_margin_top">48dp</dimen>
+    <dimen name="fab_elevation">2dp</dimen>
+    <dimen name="fab_press_translation_z">2dp</dimen>
+    <dimen name="fab_size">56dp</dimen>
+    <dimen name="fab_size_small">40dp</dimen>
+    <dimen name="fab_icon_size">24dp</dimen>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+
+    <dimen name="spacing_xsmall">2dp</dimen>
+    <dimen name="spacing_medium">8dp</dimen>
+    <dimen name="spacing_large">16dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+
+    <dimen name="detail_backdrop_height">256dp</dimen>
+    <dimen name="card_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="list_item_avatar_size">40dp</dimen>
+
+    <dimen name="status_bar_height">25dp</dimen>
+
+    <dimen name="size_word">16dp</dimen>
+    <dimen name="size_text_primary">16sp</dimen>
+    <dimen name="size_text_secondary">14sp</dimen>
+    <dimen name="size_half_byte">4dp</dimen>
+    <dimen name="size_byte">8dp</dimen>
+    <dimen name="tenant_thumbnail_width">54dp</dimen>
+    <dimen name="tenant_thumbnail_height">80dp</dimen>
+    <dimen name="mortgage_thumbnail_width">54dp</dimen>
+    <dimen name="mortgage_thumbnail_height">80dp</dimen>
+    <dimen name="property_thumbnail_width">54dp</dimen>
+    <dimen name="property_thumbnail_height">80dp</dimen>
+    <dimen name="investor_thumbnail_width">54dp</dimen>
+    <dimen name="investor_thumbnail_height">80dp</dimen>
+
+    <dimen name="editor_text_size">12dp</dimen>
+    <dimen name="editor_item_padding_top">8dp</dimen>
+    <dimen name="editor_item_padding_bottom">8dp</dimen>
+    <dimen name="editor_spinner_caption_min_width">50dp</dimen>
+
+    <dimen name="image_picker_item_side">48dp</dimen>
+
+    <dimen name="red_action_button_size">108dp</dimen>
+    <dimen name="red_action_button_margin">48dp</dimen>
+
+    <dimen name="red_action_button_content_size">16dp</dimen>
+    <dimen name="red_action_button_content_margin">36dp</dimen>
+
+    <dimen name="red_action_menu_radius">96dp</dimen>
+    <dimen name="blue_sub_action_button_size">48dp</dimen>
+    <dimen name="blue_sub_action_button_content_margin">16dp</dimen>
+
+    <dimen name="radius_large">120dp</dimen>
+    <dimen name="radius_small">30dp</dimen>
+    <dimen name="radius_medium">72dp</dimen>
+</resources>
