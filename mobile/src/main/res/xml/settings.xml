@@ -29,7 +29,7 @@
         <Preference
             android:title="@string/about_title"
             android:summary="@string/about_summary">
-            <intent android:action="com.ibm.clientcenters.activities.ActivityAbout"/>
+            <intent android:action="com.uele.gotransitalert.android.ui.activities.AboutActivity"/>
         </Preference>
     </PreferenceCategory>
 </PreferenceScreen>

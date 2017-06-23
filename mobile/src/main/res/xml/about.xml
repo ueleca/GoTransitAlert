@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/title_legal" >
+        <Preference
+            android:title="@string/title_legal">
+            <intent android:action="com.uele.gotransitalert.android.ui.activities.InfoActivity"/>
+        </Preference>
+    </PreferenceCategory>
+        <Preference
+            android:title="@string/title_tos">
+            <intent android:action="com.uele.gotransitalert.android.ui.activities.InfoActivity"/>
+        </Preference>
+        <Preference
+            android:title="@string/title_privacy_policy">
+            <intent android:action="com.uele.gotransitalert.android.ui.activities.InfoActivity"/>
+        </Preference>
+</PreferenceScreen>

@@ -15,10 +15,6 @@
 
 package com.uele.gotransitalert.android.ui.base;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;

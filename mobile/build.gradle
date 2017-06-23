@@ -39,8 +39,9 @@ android {
 
     defaultConfig {
         applicationId "com.uele.gotransitalert.android"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 25
+        multiDexEnabled true
         versionCode 1
         versionName "1.0.0"
         vectorDrawables.useSupportLibrary = true
@@ -102,7 +103,6 @@ dependencies {
     compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:cardview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:design:$rootProject.supportLibraryVersion"
-    compile 'com.android.support:multidex:1.0.1'
     compile "com.android.support:preference-v14:$rootProject.supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
     compile "com.android.support:support-core-utils:$rootProject.supportLibraryVersion"
@@ -133,7 +133,6 @@ dependencies {
     compile "com.google.firebase:firebase-auth:$rootProject.fireBaseVersion"
     compile "com.google.firebase:firebase-core:$rootProject.fireBaseVersion"
     compile "com.google.firebase:firebase-database:$rootProject.fireBaseVersion"
-    compile 'com.firebase:firebase-client-android:2.5.2'
 
     // Font
     compile "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
@@ -152,11 +151,22 @@ dependencies {
     compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
 
+    // REST Interactions
+    compile "com.squareup.retrofit2:retrofit:$rootProject.retroFitVersion"
+    compile "com.squareup.retrofit2:converter-gson:$rootProject.retroFitVersion"
+
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.squareup.okhttp3:okhttp:3.8.1'
+    compile 'com.jakewharton.byteunits:byteunits:0.9.0'
+    compile 'net.danlew:android.joda:2.7.1'
+    compile 'org.jetbrains:annotations:13.0'
+
 
     // Dependencies for local unit tests
     testCompile "junit:junit:$rootProject.ext.junitVersion"
+    testCompile 'com.google.truth:truth:0.27'
+    testCompile 'org.robolectric:robolectric:3.1.2'
     testCompile "org.mockito:mockito-core:$rootProject.mockitoVersion"
     testAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
 

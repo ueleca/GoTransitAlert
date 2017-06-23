@@ -18,20 +18,19 @@ package com.uele.gotransitalert.android.ui.base;
 
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.ColorRes;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
+import android.support.v7.widget.SearchView;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,8 +49,6 @@ import com.uele.gotransitalert.android.ui.activities.login.LoginActivity;
 import com.uele.gotransitalert.android.ui.activities.main.MainActivity;
 import com.uele.gotransitalert.android.utils.CommonUtils;
 import com.uele.gotransitalert.android.utils.NetworkUtils;
-import com.uele.gotransitalert.android.utils.ThemeUtils;
-import com.uele.gotransitalert.android.utils.ToolbarUtils;
 
 import butterknife.Unbinder;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -68,12 +65,12 @@ public abstract class BaseActivity
     protected boolean mIsStartAnim = true;
     protected boolean mIsCloseAnim = true;
 
-    private boolean mIsSearchOpened = false;
-    private EditText mEditSearch;
-    private MenuItem mSearchAction;
     private ProgressDialog mProgressDialog;
     private ActivityComponent mActivityComponent;
     private Unbinder mUnBinder;
+    private boolean mIsSearchOpened = false;
+    private EditText mEditSearch;
+    private MenuItem mSearchAction;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,6 +79,10 @@ public abstract class BaseActivity
                 .activityModule(new ActivityModule(this))
                 .applicationComponent(((AlertApp) getApplication()).getComponent())
                 .build();
+    }
+
+    public ActivityComponent getActivityComponent() {
+        return mActivityComponent;
     }
 
     @Override
@@ -154,6 +155,26 @@ public abstract class BaseActivity
 
     }
 
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showMessage(@StringRes int resId) {
+
+    }
+
+    @Override
+    public void showOfflineMessage(boolean isCritical) {
+
+    }
+
+    @Override
+    public void showErrorMessage(Throwable throwable) {
+
+    }
+
     public void hideKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {
@@ -178,17 +199,23 @@ public abstract class BaseActivity
         if (mUnBinder != null) {
             mUnBinder.unbind();
         }
-
         super.onDestroy();
     }
-
-    protected abstract void setUp();
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
+        SearchManager mSearchManager = (SearchManager)
+                getSystemService(Context.SEARCH_SERVICE);
+
+        // Get the SearchView and set the searchable configuration
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            SearchView searchView = (SearchView) menu.findItem(R.id.menu_search).getActionView();
+            searchView.setSearchableInfo(mSearchManager.getSearchableInfo(getComponentName()));
+            searchView.setIconifiedByDefault(true);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -214,48 +241,11 @@ public abstract class BaseActivity
         }
     }
 
-    public ActivityComponent getActivityComponent() {
-        return mActivityComponent;
-    }
-
-    private void initTheme() {
-        ThemeUtils.Theme theme = ThemeUtils.getCurrentTheme(this);
-        ThemeUtils.changTheme(this, theme);
-    }
-
     private void parseIntent(Intent intent) {
         if (intent != null) {
             mIsStartAnim = intent.getBooleanExtra(IS_START_ANIM, true);
             mIsCloseAnim = intent.getBooleanExtra(IS_CLOSE_ANIM, true);
         }
-    }
-
-
-    public int getStatusBarColor() {
-        return getColorPrimary();
-    }
-
-    public int getColorPrimary() {
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
-        return typedValue.data;
-    }
-
-    public int getDarkColorPrimary() {
-        TypedValue typedValue = new TypedValue();
-        getTheme().resolveAttribute(R.attr.colorPrimaryDark, typedValue, true);
-        return typedValue.data;
-    }
-
-    public int getCompactColor(@ColorRes int res) {
-        if (res <= 0) {
-            throw new IllegalArgumentException("resource id can not be less 0");
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            getColor(res);
-        }
-        // ContextCompat.getColor(context, res)
-        return getResources().getColor(res);
     }
 
     protected void showActivityInAnim() {
@@ -278,48 +268,17 @@ public abstract class BaseActivity
         mIsCloseAnim = false;
     }
 
-    protected void initToolbar(Toolbar toolbar) {
-        ToolbarUtils.initToolbar(toolbar, this);
-    }
-
-    protected void initToolbar() {}
-
-    protected void initializeDependencyInjector() {}
-
-    protected void showProgressDialog() {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setCancelable(false);
-            mProgressDialog.setMessage("Loading...");
-        }
-
-        mProgressDialog.show();
-    }
-
-    public void hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.dismiss();
-        }
-    }
-
-    protected void showProgress(String msg) {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            dismissProgress();
-        }
-        mProgressDialog = ProgressDialog.show(this,
-                getResources().getString(R.string.app_name), msg);
-    }
-
-    protected void dismissProgress() {
-        if (mProgressDialog != null) {
-            mProgressDialog.dismiss();
-            mProgressDialog = null;
-        }
+    @Nullable
+    protected boolean homeAsBackButton() {
+        return true;
     }
 
     protected void handleMenuSearch() {
         //get the actionbar
         ActionBar action = getSupportActionBar();
+
+        InputMethodManager mInputMethodManager = (InputMethodManager)
+                getSystemService(Context.INPUT_METHOD_SERVICE);
 
         //test if the search is open
         if (mIsSearchOpened) {
@@ -329,7 +288,8 @@ public abstract class BaseActivity
             action.setDisplayShowCustomEnabled(false);
             action.setDisplayShowTitleEnabled(true);
 
-
+            //hides the keyboard
+            mInputMethodManager.hideSoftInputFromWindow(mEditSearch.getWindowToken(), 0);
 
             //add the search icon in the action bar
             mSearchAction.setIcon(getResources().getDrawable(R.drawable.ic_open_search));
@@ -358,6 +318,8 @@ public abstract class BaseActivity
 
             mEditSearch.requestFocus();
 
+            //open the keyboard focused in the edtSearch
+            mInputMethodManager.showSoftInput(mEditSearch, InputMethodManager.SHOW_IMPLICIT);
 
             //add the close icon
             mSearchAction.setIcon(getResources().getDrawable(R.drawable.ic_close_search));
@@ -368,4 +330,6 @@ public abstract class BaseActivity
     private void doSearch() {
 
     }
+
+    protected abstract void setUp();
 }

@@ -17,6 +17,8 @@ package com.uele.gotransitalert.android.di.component;
 
 import com.uele.gotransitalert.android.di.module.ActivityModule;
 import com.uele.gotransitalert.android.di.scope.PerActivity;
+import com.uele.gotransitalert.android.ui.activities.about.AboutActivity;
+import com.uele.gotransitalert.android.ui.activities.info.InfoActivity;
 import com.uele.gotransitalert.android.ui.activities.login.LoginActivity;
 import com.uele.gotransitalert.android.ui.activities.main.MainActivity;
 import com.uele.gotransitalert.android.ui.activities.profile.ProfileActivity;
@@ -25,7 +27,6 @@ import com.uele.gotransitalert.android.ui.activities.search.SearchActivity;
 import com.uele.gotransitalert.android.ui.activities.settings.SettingsActivity;
 import com.uele.gotransitalert.android.ui.activities.signup.SignUpActivity;
 import com.uele.gotransitalert.android.ui.activities.splash.SplashActivity;
-import com.uele.gotransitalert.android.ui.fragments.about.AboutFragment;
 import com.uele.gotransitalert.android.ui.fragments.feed.FeedFragment;
 import com.uele.gotransitalert.android.ui.fragments.setting.SettingFragment;
 
@@ -34,6 +35,8 @@ import dagger.Component;
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
+    void inject(AboutActivity activity);
+    void inject(InfoActivity activity);
     void inject(MainActivity activity);
     void inject(LoginActivity activity);
     void inject(SplashActivity activity);
@@ -43,7 +46,6 @@ public interface ActivityComponent {
     void inject(SettingsActivity activity);
     void inject(ProfileActivity activity);
 
-    void inject(AboutFragment fragment);
     void inject(SettingFragment fragment);
     void inject(FeedFragment fragment);
 }

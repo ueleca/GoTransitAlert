@@ -15,10 +15,6 @@
 
 package com.uele.gotransitalert.android.di.module;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -26,6 +22,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import com.uele.gotransitalert.android.data.network.model.FeedResponse;
 import com.uele.gotransitalert.android.di.qualifier.ActivityContext;
 import com.uele.gotransitalert.android.di.scope.PerActivity;
+import com.uele.gotransitalert.android.ui.activities.about.AboutAlertPresenter;
+import com.uele.gotransitalert.android.ui.activities.about.AboutAlertView;
+import com.uele.gotransitalert.android.ui.activities.about.AboutPresenter;
 import com.uele.gotransitalert.android.ui.activities.login.LoginAlertPresenter;
 import com.uele.gotransitalert.android.ui.activities.login.LoginAlertView;
 import com.uele.gotransitalert.android.ui.activities.login.LoginPresenter;
@@ -50,9 +49,6 @@ import com.uele.gotransitalert.android.ui.activities.signup.SignUpPresenter;
 import com.uele.gotransitalert.android.ui.activities.splash.SplashAlertPresenter;
 import com.uele.gotransitalert.android.ui.activities.splash.SplashAlertView;
 import com.uele.gotransitalert.android.ui.activities.splash.SplashPresenter;
-import com.uele.gotransitalert.android.ui.fragments.about.AboutAlertPresenter;
-import com.uele.gotransitalert.android.ui.fragments.about.AboutAlertView;
-import com.uele.gotransitalert.android.ui.fragments.about.AboutPresenter;
 import com.uele.gotransitalert.android.ui.fragments.feed.FeedAdapter;
 import com.uele.gotransitalert.android.ui.fragments.feed.FeedAlertPresenter;
 import com.uele.gotransitalert.android.ui.fragments.feed.FeedAlertView;
@@ -150,20 +146,21 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    SplashAlertPresenter<SplashAlertView> provideSplashPresenter(SplashPresenter<SplashAlertView>
-                                                                         presenter) {
+    SplashAlertPresenter<SplashAlertView>
+    provideSplashPresenter(SplashPresenter<SplashAlertView> presenter) {
         return presenter;
     }
 
     @Provides
-    AboutAlertPresenter<AboutAlertView> provideAboutPresenter(AboutPresenter<AboutAlertView>
-                                                                    presenter) {
+    @PerActivity
+    AboutAlertPresenter<AboutAlertView>
+    provideAboutPresenter(AboutPresenter<AboutAlertView> presenter) {
         return presenter;
     }
 
     @Provides
-    SettingAlertPresenter<SettingAlertView> provideSettingPresenter(SettingPresenter<SettingAlertView>
-                                                                      presenter) {
+    SettingAlertPresenter<SettingAlertView>
+    provideSettingPresenter(SettingPresenter<SettingAlertView> presenter) {
         return presenter;
     }
 

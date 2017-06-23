@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,13 +16,9 @@
 
 package com.uele.gotransitalert.android.ui.activities.profile;
 
-import android.support.annotation.StringRes;
-
 import com.uele.gotransitalert.android.ui.base.AlertView;
 
 public interface ProfileAlertView extends AlertView {
-    void initToolbar();
-    void setToolbarTitle(String title);
-    void showSnackbar(@StringRes int message);
+
 }
 

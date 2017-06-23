@@ -14,11 +14,12 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android.ui.activities.splash;
+package com.uele.gotransitalert.android.ui.activities.about;
 
 import com.uele.gotransitalert.android.di.scope.PerActivity;
 import com.uele.gotransitalert.android.ui.base.AlertPresenter;
 
 @PerActivity
-public interface SplashAlertPresenter <V extends SplashAlertView> extends AlertPresenter<V> {
+public interface AboutAlertPresenter<V extends AboutAlertView> extends AlertPresenter<V> {
 }
+

@@ -15,10 +15,6 @@
 
 package com.uele.gotransitalert.android.ui.base;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 /**
  * Base interface that any class that wants to act as a View in the MVP (Model View Presenter)
  * pattern must implement. Generally this interface will be extended by a more specific interface

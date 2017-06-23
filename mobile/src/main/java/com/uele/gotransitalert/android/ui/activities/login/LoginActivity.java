@@ -1,11 +1,12 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -19,13 +20,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.StringRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import com.uele.gotransitalert.android.R;
 import com.uele.gotransitalert.android.ui.activities.main.MainActivity;
@@ -42,15 +40,19 @@ public class LoginActivity
 
         private static final String EXTRA_EDIT = "EDIT";
 
-        @BindView(R.id.loginBtn) Button btnLogin;
-        @BindView(R.id.loginResetPasswordBtn) Button btnResetPassword;
-        @BindView(R.id.loginSignUpBtn) Button btnSignUp;
-       // @BindView(R.id.btn_facebook) Button btnFacebook;
+        @BindView(R.id.loginBtn)
+        Button btnLogin;
+        @BindView(R.id.loginResetPasswordBtn)
+        Button btnResetPassword;
+        @BindView(R.id.loginSignUpBtn)
+        Button btnSignUp;
+        @BindView(R.id.loginFacebookBtn)
+        Button btnFacebook;
 
-        @BindView(R.id.loginEmailEdt) EditText inputEmail;
-        @BindView(R.id.loginPasswordEdt) EditText inputPassword;
-
-        @BindView(R.id.progressBar) ProgressBar progressBar;
+        @BindView(R.id.loginEmailEdt)
+        EditText inputEmail;
+        @BindView(R.id.loginPasswordEdt)
+        EditText inputPassword;
 
         @Inject
         LoginAlertPresenter<LoginAlertView> mLoginPresenter;
@@ -78,38 +80,6 @@ public class LoginActivity
         public void openMainActivity() {
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
-        }
-
-
-        @Override
-        public void showMessage(String message) {
-
-        }
-
-        @Override
-        public void showMessage(@StringRes int resId) {
-
-        }
-
-        @Override
-        public void showOfflineMessage(boolean isCritical) {
-
-        }
-
-        @Override
-        public void showErrorMessage(Throwable throwable) {
-
-        }
-
-
-        @Override
-        public void showProgress() {
-                progressBar.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        public void hideProgress() {
-                progressBar.setVisibility(View.GONE);
         }
 
         @Override

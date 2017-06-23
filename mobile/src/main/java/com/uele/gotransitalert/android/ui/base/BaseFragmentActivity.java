@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,10 +16,10 @@
 
 package com.uele.gotransitalert.android.ui.base;
 
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
@@ -26,8 +27,9 @@ import butterknife.ButterKnife;
 /**
  * Base class for all Activities that need fragments.
  */
+
 public abstract class BaseFragmentActivity
-        extends AppCompatActivity {
+        extends AppCompatActivity implements AlertView {
 
     @Override
     public void setContentView(@LayoutRes int layoutResId) {
@@ -36,8 +38,8 @@ public abstract class BaseFragmentActivity
     }
 
     protected void addFragment(int containerViewId, Fragment fragment) {
-        FragmentTransaction fragmentTransaction = this.getFragmentManager().beginTransaction();
-        fragmentTransaction.add(containerViewId, fragment);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(containerViewId, fragment);
         fragmentTransaction.commit();
     }
 

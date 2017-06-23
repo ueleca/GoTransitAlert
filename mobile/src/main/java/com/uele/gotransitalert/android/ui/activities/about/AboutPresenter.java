@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android.ui.fragments.setting;
+package com.uele.gotransitalert.android.ui.activities.about;
 
 import com.uele.gotransitalert.android.data.DataManager;
 import com.uele.gotransitalert.android.ui.base.BasePresenter;
@@ -24,13 +24,13 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class SettingPresenter<V extends SettingAlertView> extends BasePresenter<V>
-        implements SettingAlertPresenter<V> {
+public class AboutPresenter<V extends AboutAlertView> extends BasePresenter<V>
+        implements AboutAlertPresenter<V> {
 
     @Inject
-    public SettingPresenter(DataManager dataManager,
-                            SchedulerProvider schedulerProvider,
-                            CompositeDisposable compositeDisposable) {
+    public AboutPresenter(DataManager dataManager,
+                         SchedulerProvider schedulerProvider,
+                         CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 }

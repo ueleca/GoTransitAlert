@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,13 +19,11 @@ package com.uele.gotransitalert.android.ui.activities.profile;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.StringRes;
 import android.support.v7.widget.Toolbar;
 
 import com.uele.gotransitalert.android.R;
 import com.uele.gotransitalert.android.ui.activities.splash.SplashActivity;
 import com.uele.gotransitalert.android.ui.base.BaseActivity;
-import com.uele.gotransitalert.android.utils.ToolbarUtils;
 
 import javax.inject.Inject;
 
@@ -55,40 +54,6 @@ public class ProfileActivity
 
     @Override
     protected void setUp() {
-
-    }
-
-    @Override
-    public void initToolbar(){
-        ToolbarUtils.initToolbar(mToolbar, this);
-    }
-    @Override
-    public void setToolbarTitle(String title) {
-        mToolbar.setTitle(title);
-    }
-
-    @Override
-    public void showSnackbar(@StringRes int message) {
-
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void showMessage(@StringRes int resId) {
-
-    }
-
-    @Override
-    public void showOfflineMessage(boolean isCritical) {
-
-    }
-
-    @Override
-    public void showErrorMessage(Throwable throwable) {
 
     }
 }

@@ -54,6 +54,9 @@ ext {
     rx2AndroidNetworking = '1.0.0'
     timberVersion = '4.5.1'
 
+    dexMakerVersion = '1.2'
+    retroFitVersion = '2.1.0'
+
     //Test dependencies
     junitVersion = '4.12'
     espressoVersion = '2.2.2'

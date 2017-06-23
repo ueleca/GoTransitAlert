@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,10 +15,6 @@
  */
 
 package com.uele.gotransitalert.android.ui.activities.splash;
-
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
 
 import com.uele.gotransitalert.android.R;
 import com.uele.gotransitalert.android.data.DataManager;

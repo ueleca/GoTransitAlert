@@ -139,4 +139,9 @@
     <string name="error_empty_input">Inputs may not be Empty</string>
     <string name="error_password_too_long">Password too long</string>
 
+    <string name="title_legal">Legal</string>
+    <string name="title_tos">Terms of Service</string>
+    <string name="title_privacy_policy">Privacy Policy</string>
+
+
 </resources>

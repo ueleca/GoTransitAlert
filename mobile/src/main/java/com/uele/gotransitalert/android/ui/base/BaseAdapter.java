@@ -15,10 +15,6 @@
 
 package com.uele.gotransitalert.android.ui.base;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 import android.support.v7.widget.RecyclerView;
 
 import java.util.List;

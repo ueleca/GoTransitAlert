@@ -1,11 +1,12 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,14 +16,9 @@
 
 package com.uele.gotransitalert.android.ui.activities.splash;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.StringRes;
 
 import com.uele.gotransitalert.android.R;
 import com.uele.gotransitalert.android.ui.activities.login.LoginActivity;
@@ -60,61 +56,6 @@ public class SplashActivity
     }
 
     @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    public void openActivityOnTokenExpire() {
-
-    }
-
-    @Override
-    public void onError(@StringRes int resId) {
-
-    }
-
-    @Override
-    public void onError(String message) {
-
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void showMessage(@StringRes int resId) {
-
-    }
-
-    @Override
-    public boolean isNetworkConnected() {
-        return false;
-    }
-
-    @Override
-    public void hideKeyboard() {
-
-    }
-
-    @Override
-    public void showOfflineMessage(boolean isCritical) {
-
-    }
-
-    @Override
-    public void showErrorMessage(Throwable throwable) {
-
-    }
-
-    @Override
     public void openLoginActivity() {
         Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
         startActivity(intent);
@@ -130,16 +71,6 @@ public class SplashActivity
 
     @Override
     public void startSyncService() {
-
-    }
-
-    @Override
-    public void onFragmentAttached() {
-
-    }
-
-    @Override
-    public void onFragmentDetached(String tag) {
 
     }
 

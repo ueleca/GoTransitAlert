@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Uele, Inc.
+ * Copyright (C) 2017 Brian Donaldson
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android.ui.fragments.setting;
+package com.uele.gotransitalert.android.ui.activities.web;
 
 import com.uele.gotransitalert.android.data.DataManager;
 import com.uele.gotransitalert.android.ui.base.BasePresenter;
@@ -24,13 +24,13 @@ import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class SettingPresenter<V extends SettingAlertView> extends BasePresenter<V>
-        implements SettingAlertPresenter<V> {
+public class WebViewPresenter<V extends WebViewAlertView> extends BasePresenter<V>
+        implements WebViewAlertPresenter<V> {
 
     @Inject
-    public SettingPresenter(DataManager dataManager,
-                            SchedulerProvider schedulerProvider,
-                            CompositeDisposable compositeDisposable) {
+    public WebViewPresenter(DataManager dataManager,
+                          SchedulerProvider schedulerProvider,
+                          CompositeDisposable compositeDisposable) {
         super(dataManager, schedulerProvider, compositeDisposable);
     }
 }

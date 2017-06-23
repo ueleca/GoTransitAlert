@@ -19,8 +19,6 @@ import com.uele.gotransitalert.android.ui.base.AlertView;
 
 public interface LoginAlertView extends AlertView {
     void openMainActivity();
-    void showProgress();
-    void hideProgress();
     String getInputEmailText();
     String getInputPasswordText();
     void setHasInputEmailText();
