@@ -97,8 +97,8 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    LoginAlertPresenter<LoginAlertView> provideLoginPresenter(LoginPresenter<LoginAlertView>
-                                                                    presenter) {
+    LoginAlertPresenter<LoginAlertView>
+    provideLoginPresenter(LoginPresenter<LoginAlertView> presenter) {
         return presenter;
     }
 
