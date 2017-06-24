@@ -24,7 +24,6 @@ import android.support.v4.content.ContextCompat;
 
 import com.uele.gotransitalert.android.R;
 
-
 public final class ViewUtils {
 
     private ViewUtils() {
