@@ -16,9 +16,12 @@
 
 package com.uele.gotransitalert.android.ui.activities.main;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,6 +38,8 @@ import butterknife.ButterKnife;
 public class MainActivity
         extends BaseActivity implements MainAlertView {
 
+    private static final String EXTRA_EDIT = "EDIT";
+
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
 
@@ -46,6 +51,15 @@ public class MainActivity
         return intent;
     }
 
+    public static void start(Activity activity, Boolean edit) {
+        Intent starter = new Intent(activity, MainActivity.class);
+        starter.putExtra(EXTRA_EDIT, edit);
+        //noinspection unchecked
+        ActivityCompat.startActivity(activity,
+                starter,
+                ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,11 +68,6 @@ public class MainActivity
         setUnBinder(ButterKnife.bind(this));
         mMainPresenter.onAttach(this);
         setUp();
-    }
-
-    @Override
-    protected void setUp() {
-        setSupportActionBar(mToolbar);
     }
 
     @Override
@@ -81,5 +90,10 @@ public class MainActivity
                 return super.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void setUp() {
+        setSupportActionBar(mToolbar);
     }
 }

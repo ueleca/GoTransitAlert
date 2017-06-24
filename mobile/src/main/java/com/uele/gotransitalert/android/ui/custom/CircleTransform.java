@@ -1,11 +1,12 @@
 /*
- * Copyright 2017 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * <p>
+ *
  * http://www.apache.org/licenses/LICENSE-2.0
- * <p>
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -15,10 +16,6 @@
 
 package com.uele.gotransitalert.android.ui.custom;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
@@ -26,7 +23,6 @@ import android.graphics.Paint;
 
 import com.squareup.picasso.Transformation;
 
-// https://gist.github.com/julianshen/5829333
 public class CircleTransform
         implements Transformation {
     @Override
@@ -45,7 +41,8 @@ public class CircleTransform
 
         Canvas canvas = new Canvas(bitmap);
         Paint paint = new Paint();
-        BitmapShader shader = new BitmapShader(squaredBitmap, BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
+        BitmapShader shader = new BitmapShader(squaredBitmap,
+                BitmapShader.TileMode.CLAMP, BitmapShader.TileMode.CLAMP);
         paint.setShader(shader);
         paint.setAntiAlias(true);
 

@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package com.uele.gotransitalert.android.di.module;
 
 import android.content.Context;
@@ -104,43 +104,43 @@ public class ActivityModule {
 
     @Provides
     @PerActivity
-    MainAlertPresenter<MainAlertView> provideMainPresenter(MainPresenter<MainAlertView>
-                                                                 presenter) {
+    MainAlertPresenter<MainAlertView>
+    provideMainPresenter(MainPresenter<MainAlertView> presenter) {
         return presenter;
     }
 
     @Provides
     @PerActivity
-    ProfileAlertPresenter<ProfileAlertView> provideProfilePresenter(ProfilePresenter<ProfileAlertView>
-                                                                   presenter) {
+    ProfileAlertPresenter<ProfileAlertView>
+    provideProfilePresenter(ProfilePresenter<ProfileAlertView> presenter) {
         return presenter;
     }
 
     @Provides
     @PerActivity
-    ResetAlertPresenter<ResetAlertView> provideResetPresenter(ResetPresenter<ResetAlertView>
-                                                                   presenter) {
+    ResetAlertPresenter<ResetAlertView>
+    provideResetPresenter(ResetPresenter<ResetAlertView> presenter) {
         return presenter;
     }
 
     @Provides
     @PerActivity
-    SearchAlertPresenter<SearchAlertView> provideSearchPresenter(SearchPresenter<SearchAlertView>
-                                                                       presenter) {
+    SearchAlertPresenter<SearchAlertView>
+    provideSearchPresenter(SearchPresenter<SearchAlertView> presenter) {
         return presenter;
     }
 
     @Provides
     @PerActivity
-    SettingsAlertPresenter<SettingsAlertView> provideSettingsPresenter(SettingsPresenter<SettingsAlertView>
-                                                                             presenter) {
+    SettingsAlertPresenter<SettingsAlertView>
+    provideSettingsPresenter(SettingsPresenter<SettingsAlertView> presenter) {
         return presenter;
     }
 
     @Provides
     @PerActivity
-    SignUpAlertPresenter<SignUpAlertView> provideSignUpPresenter(SignUpPresenter<SignUpAlertView>
-                                                                         presenter) {
+    SignUpAlertPresenter<SignUpAlertView>
+    provideSignUpPresenter(SignUpPresenter<SignUpAlertView> presenter) {
         return presenter;
     }
 

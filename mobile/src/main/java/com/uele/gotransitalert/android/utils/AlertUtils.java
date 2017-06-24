@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,7 +26,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.uele.gotransitalert.android.R;
-
 
 /**
  * Utils to show alerts and toaster.

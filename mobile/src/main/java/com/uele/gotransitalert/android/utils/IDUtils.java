@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -25,13 +26,12 @@ import java.util.Random;
  */
 public class IDUtils {
 
-
     /**
      * Obtiene un randon int para ser utilizado como id
+     *
      * @return
      */
-    public static int getRandomIntID()
-    {
+    public static int getRandomIntID() {
         Random rand = new Random();
 
         return rand.nextInt();
@@ -39,14 +39,11 @@ public class IDUtils {
 
     /**
      * Obtiene un randon string para ser utilziado como id
+     *
      * @return
      */
-    public static String getRandomStringID()
-    {
-        int rand =  getRandomIntID();
-
+    public static String getRandomStringID() {
+        int rand = getRandomIntID();
         return Integer.toString(rand);
-
     }
-
 }

@@ -20,7 +20,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.StringRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.widget.Button;
@@ -40,9 +39,12 @@ public class SignUpActivity
 
     private static final String EXTRA_EDIT = "EDIT";
 
-    @BindView(R.id.signUpBtn) Button signUpBtn;
-    @BindView(R.id.signUpEmailEdt) EditText signUpEmailEdt;
-    @BindView(R.id.signUpPasswordEdt) EditText signUpPasswordEdt;
+    @BindView(R.id.signUpBtn)
+    Button signUpBtn;
+    @BindView(R.id.signUpEmailEdt)
+    EditText signUpEmailEdt;
+    @BindView(R.id.signUpPasswordEdt)
+    EditText signUpPasswordEdt;
 
     @Inject
     SignUpAlertPresenter<SignUpAlertView> mSignUpPresenter;
@@ -50,6 +52,15 @@ public class SignUpActivity
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, SignUpActivity.class);
         return intent;
+    }
+
+    public static void start(Activity activity, Boolean edit) {
+        Intent starter = new Intent(activity, SignUpActivity.class);
+        starter.putExtra(EXTRA_EDIT, edit);
+        //noinspection unchecked
+        ActivityCompat.startActivity(activity,
+                starter,
+                ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
     }
 
     @Override
@@ -66,37 +77,8 @@ public class SignUpActivity
 
     }
 
-    public static void start(Activity activity, Boolean edit) {
-        Intent starter = new Intent(activity, SignUpActivity.class);
-        starter.putExtra(EXTRA_EDIT, edit);
-        //noinspection unchecked
-        ActivityCompat.startActivity(activity,
-                starter,
-                ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
-    }
-
     @OnClick(R.id.signUpBtn)
-    public void signUp(){
-
-    }
-
-    @Override
-    public void showMessage(String message) {
-
-    }
-
-    @Override
-    public void showMessage(@StringRes int resId) {
-
-    }
-
-    @Override
-    public void showOfflineMessage(boolean isCritical) {
-
-    }
-
-    @Override
-    public void showErrorMessage(Throwable throwable) {
+    public void signUp() {
 
     }
 }

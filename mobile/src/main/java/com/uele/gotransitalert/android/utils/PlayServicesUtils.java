@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -27,6 +28,7 @@ import timber.log.Timber;
 /**
  * Helper for Google Play services-related operations.
  */
+
 public class PlayServicesUtils {
 
 
@@ -34,7 +36,8 @@ public class PlayServicesUtils {
 
         boolean returnValue = false;
 
-        final int googlePlayServicesCheck = GooglePlayServicesUtil.isGooglePlayServicesAvailable(activity);
+        final int googlePlayServicesCheck =
+                GooglePlayServicesUtil.isGooglePlayServicesAvailable(activity);
         switch (googlePlayServicesCheck) {
             case ConnectionResult.SUCCESS:
                 Timber.d("Play service available");
@@ -69,6 +72,5 @@ public class PlayServicesUtils {
         } else {
             Timber.i("This device is not supported");
         }
-
     }
 }

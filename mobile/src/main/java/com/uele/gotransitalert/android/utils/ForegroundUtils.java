@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -56,21 +57,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * Foreground.get(this).removeListener(listener);
  * }
  */
-public class ForegroundUtils implements Application.ActivityLifecycleCallbacks {
+public class ForegroundUtils
+        implements Application.ActivityLifecycleCallbacks {
 
     public static final long CHECK_DELAY = 500;
     public static final String TAG = ForegroundUtils.class.getName();
-
-    public interface Listener {
-
-        public void onBecameForeground();
-
-        public void onBecameBackground();
-
-    }
-
     private static ForegroundUtils instance;
-
     private boolean foreground = false, paused = true;
     private Handler handler = new Handler();
     private List<Listener> listeners = new CopyOnWriteArrayList<Listener>();
@@ -206,5 +198,13 @@ public class ForegroundUtils implements Application.ActivityLifecycleCallbacks {
 
     @Override
     public void onActivityDestroyed(Activity activity) {
+    }
+
+    public interface Listener {
+
+        public void onBecameForeground();
+
+        public void onBecameBackground();
+
     }
 }

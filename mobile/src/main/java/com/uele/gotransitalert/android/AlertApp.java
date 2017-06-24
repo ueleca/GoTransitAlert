@@ -42,7 +42,6 @@ public abstract class AlertApp
     CalligraphyConfig mCalligraphyConfig;
 
     public AlertApp() {
-
     }
 
     @Override

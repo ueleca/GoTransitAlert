@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,6 +16,10 @@
 
 package com.uele.gotransitalert.android.utils;
 
-public class Utils {
-    public static final String FIREBASE_URL = "http://10.0.0.40:8080";
+public interface IStringFetcher {
+
+    public String getString(int id);
+
+    public String getString(int id, Object... format);
+
 }

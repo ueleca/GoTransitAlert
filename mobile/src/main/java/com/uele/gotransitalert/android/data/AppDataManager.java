@@ -35,10 +35,6 @@ import javax.inject.Singleton;
 
 import io.reactivex.Observable;
 
-/*
- * Created by Brian Donaldson on 3/13/17.
- */
-
 @Singleton
 public class AppDataManager
         implements DataManager {

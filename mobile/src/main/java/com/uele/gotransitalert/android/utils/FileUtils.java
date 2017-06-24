@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -24,6 +25,7 @@ import java.nio.charset.Charset;
 /**
  * Utilities and constants related to files
  */
+
 public class FileUtils {
     public static void writeFile(String data, File file) throws IOException {
         writeFile(data.getBytes(Charset.forName("UTF-8")), file);

@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.uele.gotransitalert.android.ui.activities.login.LoginActivity;
+import com.uele.gotransitalert.android.utils.Constants;
 
 import timber.log.Timber;
 
@@ -35,7 +36,8 @@ import static android.accounts.AccountManager.KEY_AUTHTOKEN;
 import static android.accounts.AccountManager.KEY_BOOLEAN_RESULT;
 import static android.accounts.AccountManager.KEY_INTENT;
 
-public class AccountAuthenticator extends AbstractAccountAuthenticator {
+public class AccountAuthenticator
+        extends AbstractAccountAuthenticator {
 
     private final Context context;
 

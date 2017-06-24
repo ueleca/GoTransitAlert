@@ -1,4 +1,4 @@
-package com.uele.gotransitalert.android.data;
+package com.uele.gotransitalert.android.utils;
 
 import okhttp3.OkHttpClient;
 

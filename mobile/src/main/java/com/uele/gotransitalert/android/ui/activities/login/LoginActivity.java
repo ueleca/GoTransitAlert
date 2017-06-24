@@ -38,91 +38,91 @@ import butterknife.OnClick;
 public class LoginActivity
         extends BaseActivity implements LoginAlertView {
 
-        private static final String EXTRA_EDIT = "EDIT";
+    private static final String EXTRA_EDIT = "EDIT";
 
-        @BindView(R.id.loginBtn)
-        Button btnLogin;
-        @BindView(R.id.loginResetPasswordBtn)
-        Button btnResetPassword;
-        @BindView(R.id.loginSignUpBtn)
-        Button btnSignUp;
-        @BindView(R.id.loginFacebookBtn)
-        Button btnFacebook;
+    @BindView(R.id.loginBtn)
+    Button btnLogin;
+    @BindView(R.id.loginResetPasswordBtn)
+    Button btnResetPassword;
+    @BindView(R.id.loginSignUpBtn)
+    Button btnSignUp;
+    @BindView(R.id.loginFacebookBtn)
+    Button btnFacebook;
 
-        @BindView(R.id.loginEmailEdt)
-        EditText inputEmail;
-        @BindView(R.id.loginPasswordEdt)
-        EditText inputPassword;
+    @BindView(R.id.loginEmailEdt)
+    EditText inputEmail;
+    @BindView(R.id.loginPasswordEdt)
+    EditText inputPassword;
 
-        @Inject
-        LoginAlertPresenter<LoginAlertView> mLoginPresenter;
+    @Inject
+    LoginAlertPresenter<LoginAlertView> mLoginPresenter;
 
-        public static Intent getStartIntent(Context context) {
-                Intent intent = new Intent(context, LoginActivity.class);
-                return intent;
-        }
+    public static Intent getStartIntent(Context context) {
+        Intent intent = new Intent(context, LoginActivity.class);
+        return intent;
+    }
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                setContentView(R.layout.activity_login);
-                getActivityComponent().inject(this);
-                setUnBinder(ButterKnife.bind(this));
-                mLoginPresenter.onAttach(LoginActivity.this);
-        }
+    public static void start(Activity activity, Boolean edit) {
+        Intent starter = new Intent(activity, LoginActivity.class);
+        starter.putExtra(EXTRA_EDIT, edit);
+        //noinspection unchecked
+        ActivityCompat.startActivity(activity,
+                starter,
+                ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
+    }
 
-        @Override
-        protected void setUp() {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        getActivityComponent().inject(this);
+        setUnBinder(ButterKnife.bind(this));
+        mLoginPresenter.onAttach(LoginActivity.this);
+    }
 
-        }
+    @Override
+    protected void setUp() {
 
-        @Override
-        public void openMainActivity() {
-                startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                finish();
-        }
+    }
 
-        @Override
-        public String getInputEmailText() {
-                return inputEmail.getText().toString();
-        }
+    @Override
+    public void openMainActivity() {
+        startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        finish();
+    }
 
-        @Override
-        public String getInputPasswordText() {
-                return inputPassword.getText().toString();
-        }
+    @Override
+    public String getInputEmailText() {
+        return inputEmail.getText().toString();
+    }
 
-        @Override
-        public void setHasInputEmailText() {
-                inputEmail.setError(getApplicationContext().getString(R.string.error_enter_email));
-        }
+    @Override
+    public String getInputPasswordText() {
+        return inputPassword.getText().toString();
+    }
 
-        @Override
-        public void setHasInputPasswordText() {
-                inputPassword.setError(getApplicationContext().getString(R.string.error_enter_password));
-        }
+    @Override
+    public void setHasInputEmailText() {
+        inputEmail.setError(getApplicationContext().getString(R.string.error_enter_email));
+    }
 
-        public static void start(Activity activity, Boolean edit) {
-                Intent starter = new Intent(activity, LoginActivity.class);
-                starter.putExtra(EXTRA_EDIT, edit);
-                //noinspection unchecked
-                ActivityCompat.startActivity(activity,
-                        starter,
-                        ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
-        }
+    @Override
+    public void setHasInputPasswordText() {
+        inputPassword.setError(getApplicationContext().getString(R.string.error_enter_password));
+    }
 
-        @OnClick(R.id.loginBtn)
-        public void onLogin(){
-              //  mLoginPresenter.getFields(getInputEmailText(), getInputPasswordText());
-        }
+    @OnClick(R.id.loginBtn)
+    public void onLogin() {
+        mLoginPresenter.onServerLoginClick(getInputEmailText(), getInputPasswordText());
+    }
 
-        @OnClick(R.id.loginResetPasswordBtn)
-        public void onReset(){
+    @OnClick(R.id.loginResetPasswordBtn)
+    public void onReset() {
 
-        }
+    }
 
-        @OnClick(R.id.loginSignUpBtn)
-        public void onSignUp(){
+    @OnClick(R.id.loginSignUpBtn)
+    public void onSignUp() {
 
-        }
+    }
 }

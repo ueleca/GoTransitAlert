@@ -19,7 +19,6 @@ import android.content.Context;
 
 import com.uele.gotransitalert.android.ui.activities.settings.SettingsAlertView;
 import com.uele.gotransitalert.android.ui.activities.settings.SettingsPresenter;
-import com.uele.gotransitalert.android.utils.ObservableUtils;
 import com.uele.gotransitalert.android.utils.PreferenceUtils;
 
 import org.junit.After;

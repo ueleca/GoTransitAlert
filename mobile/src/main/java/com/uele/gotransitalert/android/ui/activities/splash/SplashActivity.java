@@ -16,12 +16,14 @@
 
 package com.uele.gotransitalert.android.ui.activities.splash;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 
 import com.uele.gotransitalert.android.R;
-import com.uele.gotransitalert.android.ui.activities.login.LoginActivity;
 import com.uele.gotransitalert.android.ui.activities.main.MainActivity;
 import com.uele.gotransitalert.android.ui.base.BaseActivity;
 
@@ -32,12 +34,23 @@ import butterknife.ButterKnife;
 public class SplashActivity
         extends BaseActivity implements SplashAlertView {
 
+    private static final String EXTRA_EDIT = "EDIT";
+
     @Inject
     SplashAlertPresenter<SplashAlertView> mSplashPresenter;
 
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, SplashActivity.class);
         return intent;
+    }
+
+    public static void start(Activity activity, Boolean edit) {
+        Intent starter = new Intent(activity, SplashActivity.class);
+        starter.putExtra(EXTRA_EDIT, edit);
+        //noinspection unchecked
+        ActivityCompat.startActivity(activity,
+                starter,
+                ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
     }
 
     @Override
@@ -56,13 +69,6 @@ public class SplashActivity
     }
 
     @Override
-    public void openLoginActivity() {
-        Intent intent = LoginActivity.getStartIntent(SplashActivity.this);
-        startActivity(intent);
-        finish();
-    }
-
-    @Override
     public void openMainActivity() {
         Intent intent = MainActivity.getStartIntent(SplashActivity.this);
         startActivity(intent);
@@ -78,5 +84,4 @@ public class SplashActivity
     protected void setUp() {
 
     }
-
 }

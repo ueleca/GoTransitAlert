@@ -19,7 +19,6 @@ package com.uele.gotransitalert.android.ui.activities.splash;
 import com.uele.gotransitalert.android.ui.base.AlertView;
 
 public interface SplashAlertView extends AlertView {
-    void openLoginActivity();
     void openMainActivity();
     void startSyncService();
 }

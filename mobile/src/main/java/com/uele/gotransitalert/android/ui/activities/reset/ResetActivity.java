@@ -24,7 +24,6 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 
 import com.uele.gotransitalert.android.R;
 import com.uele.gotransitalert.android.ui.base.BaseActivity;
@@ -40,12 +39,12 @@ public class ResetActivity
 
     private static final String EXTRA_EDIT = "EDIT";
 
-    @BindView(R.id.resetBackBtn) Button btnBack;
-    @BindView(R.id.resetPasswordBtn) Button btnResetPassword;
-
-    @BindView(R.id.email) EditText inputEmail;
-
-    @BindView(R.id.progressBar) ProgressBar progressBar;
+    @BindView(R.id.resetBackBtn)
+    Button btnBack;
+    @BindView(R.id.resetPasswordBtn)
+    Button btnResetPassword;
+    @BindView(R.id.email)
+    EditText inputEmail;
 
     @Inject
     ResetAlertPresenter<ResetAlertView> mResetPresenter;
@@ -53,6 +52,15 @@ public class ResetActivity
     public static Intent getStartIntent(Context context) {
         Intent intent = new Intent(context, ResetActivity.class);
         return intent;
+    }
+
+    public static void start(Activity activity, Boolean edit) {
+        Intent starter = new Intent(activity, ResetActivity.class);
+        starter.putExtra(EXTRA_EDIT, edit);
+        //noinspection unchecked
+        ActivityCompat.startActivity(activity,
+                starter,
+                ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
     }
 
     @Override
@@ -69,22 +77,13 @@ public class ResetActivity
 
     }
 
-    public static void start(Activity activity, Boolean edit) {
-        Intent starter = new Intent(activity, ResetActivity.class);
-        starter.putExtra(EXTRA_EDIT, edit);
-        //noinspection unchecked
-        ActivityCompat.startActivity(activity,
-                starter,
-                ActivityOptionsCompat.makeSceneTransitionAnimation(activity).toBundle());
-    }
-
     @OnClick(R.id.resetBackBtn)
-    public void back(){
+    public void back() {
 
     }
 
     @OnClick(R.id.resetPasswordBtn)
-    public void reset(){
+    public void reset() {
 
     }
 }

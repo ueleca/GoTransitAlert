@@ -1,5 +1,6 @@
 /*
- * Copyright 2016 Brian Donaldson
+ * Copyright (C) 2017 Uele, Inc.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,6 +27,7 @@ import com.uele.gotransitalert.android.R;
 /**
  * Utils for showing local notifications
  */
+
 public class NotificationUtils {
 
     /**
@@ -36,7 +38,8 @@ public class NotificationUtils {
      * @param notificationSmallIconResource
      * @param context
      */
-    public static void showLocalNotification(String notificationText, String notificationTitle, int notificationSmallIconResource, Context context) {
+    public static void showLocalNotification(String notificationText, String notificationTitle,
+                                             int notificationSmallIconResource, Context context) {
         Notification notification = new NotificationCompat.Builder(context)
                 .setTicker(notificationText)
                 .setSmallIcon(notificationSmallIconResource)
@@ -49,7 +52,8 @@ public class NotificationUtils {
                 .setAutoCancel(true)
                 .build();
 
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager notificationManager =
+                (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, notification);
     }
 }
