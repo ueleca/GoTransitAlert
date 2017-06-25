@@ -14,20 +14,33 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android;
+package com.uele.gotransitalert.android.logging;
+
+import android.util.Log;
+
+import com.crashlytics.android.Crashlytics;
 
 import timber.log.Timber;
 
-public class AlertAppImpl
-        extends AlertApp {
+/**
+ * A logging implementation which reports 'info', 'warning', and 'error' logs to Crashlytics.
+ */
+
+public class CrashlyticsTree
+        extends Timber.Tree {
 
     @Override
-    protected void init() {
-        Timber.plant(new Timber.DebugTree());
-    }
+    protected void log(int priority, String tag, String message, Throwable t) {
+        if (priority == Log.VERBOSE || priority == Log.DEBUG) {
+            return;
+        }
 
-    @Override
-    protected void onAfterInjection() {
+        Crashlytics.log(priority, tag, message);
 
+        if (t != null) {
+            if (priority == Log.ERROR) {
+                Crashlytics.logException(t);
+            }
+        }
     }
 }

@@ -48,9 +48,8 @@ public abstract class AlertApp
     public void onCreate() {
         super.onCreate();
 
-        mApplicationComponent = DaggerApplicationComponent.builder()
-                .applicationModule(new ApplicationModule(this)).build();
-        mApplicationComponent.inject(this);
+        init();
+        initializeInjector();
 
         AlertLogger.init();
         AndroidNetworking.initialize(getApplicationContext());
@@ -60,6 +59,8 @@ public abstract class AlertApp
         }
 
         CalligraphyConfig.initDefault(mCalligraphyConfig);
+
+        onAfterInjection();
     }
 
     public ApplicationComponent getComponent() {
@@ -69,6 +70,14 @@ public abstract class AlertApp
     // Needed to replace the component with a test
     public void setComponent(ApplicationComponent applicationComponent) {
         mApplicationComponent = applicationComponent;
+    }
+
+    private void initializeInjector() {
+        if (mApplicationComponent == null) {
+            mApplicationComponent = DaggerApplicationComponent.builder()
+                    .applicationModule(new ApplicationModule(this)).build();
+            mApplicationComponent.inject(this);
+        }
     }
 
     protected abstract void init();

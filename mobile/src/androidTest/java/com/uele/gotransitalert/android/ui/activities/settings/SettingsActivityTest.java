@@ -14,32 +14,30 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android.utils.rx;
+package com.uele.gotransitalert.android.ui.activities.settings;
 
-import io.reactivex.Scheduler;
-import io.reactivex.schedulers.TestScheduler;
+import android.support.test.rule.ActivityTestRule;
+import android.support.test.runner.AndroidJUnit4;
 
-public class TestSchedulerProvider implements SchedulerProvider {
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.runner.RunWith;
 
-    private final TestScheduler mTestScheduler;
+@RunWith(AndroidJUnit4.class)
+public class SettingsActivityTest {
 
-    public TestSchedulerProvider(TestScheduler testScheduler) {
-        this.mTestScheduler = testScheduler;
+    @Rule
+    public final ActivityTestRule<SettingsActivity> activityTestRule =
+            new ActivityTestRule<>(SettingsActivity.class);
+
+    @Before
+    public void setUp() throws Exception {
+
     }
 
-    @Override
-    public Scheduler ui() {
-        return mTestScheduler;
-    }
+    @After
+    public void tearDown() throws Exception {
 
-    @Override
-    public Scheduler computation() {
-        return mTestScheduler;
     }
-
-    @Override
-    public Scheduler io() {
-        return mTestScheduler;
-    }
-
 }

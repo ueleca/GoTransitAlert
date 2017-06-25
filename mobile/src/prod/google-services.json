@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "1014697608683",
+    "firebase_url": "https://gotransitalert.firebaseio.com",
+    "project_id": "gotransitalert",
+    "storage_bucket": "gotransitalert.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014697608683:android:896ada487be6bcbb",
+        "android_client_info": {
+          "package_name": "com.uele.gotransitalert.android.mock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014697608683-5j81imsgqhqjrlsmu3ejechb4k7brjub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0DS7mru7IENo1GZpWCn6pON73aUt8OAM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014697608683:android:9c8da2182a75998e",
+        "android_client_info": {
+          "package_name": "com.uele.gotransitalert.android.prod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014697608683-5j81imsgqhqjrlsmu3ejechb4k7brjub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0DS7mru7IENo1GZpWCn6pON73aUt8OAM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

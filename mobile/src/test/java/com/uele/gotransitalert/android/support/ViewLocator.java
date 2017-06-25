@@ -14,32 +14,23 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android.utils.rx;
+package com.uele.gotransitalert.android.support;
 
-import io.reactivex.Scheduler;
-import io.reactivex.schedulers.TestScheduler;
+import android.app.Activity;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-public class TestSchedulerProvider implements SchedulerProvider {
-
-    private final TestScheduler mTestScheduler;
-
-    public TestSchedulerProvider(TestScheduler testScheduler) {
-        this.mTestScheduler = testScheduler;
+public class ViewLocator {
+    public static TextView getTextView(Activity activity, int viewId) {
+        return (TextView) activity.findViewById(viewId);
     }
 
-    @Override
-    public Scheduler ui() {
-        return mTestScheduler;
+    public static EditText getEditText(Activity activity, int viewId) {
+        return (EditText) activity.findViewById(viewId);
     }
 
-    @Override
-    public Scheduler computation() {
-        return mTestScheduler;
+    public static Button getButton(Activity activity, int viewId) {
+        return (Button) activity.findViewById(viewId);
     }
-
-    @Override
-    public Scheduler io() {
-        return mTestScheduler;
-    }
-
 }

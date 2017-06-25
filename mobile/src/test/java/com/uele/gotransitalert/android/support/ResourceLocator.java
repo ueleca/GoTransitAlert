@@ -14,12 +14,12 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android.utils;
+package com.uele.gotransitalert.android.support;
 
-/**
- * Robolectric default config properties
- */
-public class DefaultConfig {
-    //The api level that Roboelectric will use to run the unit tests
-    public static final int EMULATE_SDK = 21;
+import org.robolectric.RuntimeEnvironment;
+
+public class ResourceLocator {
+    public static String getString(int stringId) {
+        return RuntimeEnvironment.application.getString(stringId);
+    }
 }

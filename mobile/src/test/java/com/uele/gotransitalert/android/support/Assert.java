@@ -14,12 +14,17 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android.utils;
+package com.uele.gotransitalert.android.support;
 
-/**
- * Robolectric default config properties
- */
-public class DefaultConfig {
-    //The api level that Roboelectric will use to run the unit tests
-    public static final int EMULATE_SDK = 21;
+import android.view.View;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertNotNull;
+
+public class Assert {
+    public static void assertViewIsVisible(View view) {
+        assertNotNull(view);
+        assertThat(view.getVisibility(), equalTo(View.VISIBLE));
+    }
 }

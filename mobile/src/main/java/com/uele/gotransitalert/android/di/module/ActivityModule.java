@@ -25,6 +25,9 @@ import com.uele.gotransitalert.android.di.scope.PerActivity;
 import com.uele.gotransitalert.android.ui.activities.about.AboutAlertPresenter;
 import com.uele.gotransitalert.android.ui.activities.about.AboutAlertView;
 import com.uele.gotransitalert.android.ui.activities.about.AboutPresenter;
+import com.uele.gotransitalert.android.ui.activities.info.InfoAlertPresenter;
+import com.uele.gotransitalert.android.ui.activities.info.InfoAlertView;
+import com.uele.gotransitalert.android.ui.activities.info.InfoPresenter;
 import com.uele.gotransitalert.android.ui.activities.login.LoginAlertPresenter;
 import com.uele.gotransitalert.android.ui.activities.login.LoginAlertView;
 import com.uele.gotransitalert.android.ui.activities.login.LoginPresenter;
@@ -155,6 +158,13 @@ public class ActivityModule {
     @PerActivity
     AboutAlertPresenter<AboutAlertView>
     provideAboutPresenter(AboutPresenter<AboutAlertView> presenter) {
+        return presenter;
+    }
+
+    @Provides
+    @PerActivity
+    InfoAlertPresenter<InfoAlertView>
+    provideInfoPresenter(InfoPresenter<InfoAlertView> presenter) {
         return presenter;
     }
 
