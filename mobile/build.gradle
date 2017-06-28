@@ -84,6 +84,15 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            keyAlias 'alert'
+            keyPassword 'mko09ijn'
+            storeFile file('/Users/briandonaldson/Desktop/Test2.jks')
+            storePassword 'mko09ijn'
+        }
+    }
+
     testOptions {
         unitTests.returnDefaultValues = true
     }
@@ -120,11 +129,18 @@ dependencies {
     // Database
     compile "org.greenrobot:greendao:$rootProject.greenDaoVersion"
 
+    // Debug Database
+    debugCompile "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
+
     // Dependency Injection
     compile "com.google.dagger:dagger:$rootProject.dagger2Version"
     annotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
     provided 'javax.annotation:jsr250-api:1.0'
     compile 'javax.inject:javax.inject:1'
+
+    // Events
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.squareup:otto:1.3.8'
 
     // Facebook
     compile 'com.facebook.android:facebook-android-sdk:[4,5)'
@@ -162,7 +178,6 @@ dependencies {
     compile 'net.danlew:android.joda:2.7.1'
     compile 'org.jetbrains:annotations:13.0'
 
-
     // Dependencies for local unit tests
     testCompile "junit:junit:$rootProject.ext.junitVersion"
     testCompile 'com.google.truth:truth:0.27'
@@ -173,6 +188,8 @@ dependencies {
     // UI Testing
     androidTestCompile "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
     androidTestCompile "com.android.support.test.espresso:espresso-intents:$rootProject.espressoVersion"
+    androidTestCompile "com.google.dexmaker:dexmaker:$dexMakerVersion"
+    androidTestCompile "com.google.dexmaker:dexmaker-mockito:$dexMakerVersion"
     androidTestCompile "org.mockito:mockito-core:$rootProject.mockitoVersion"
     androidTestAnnotationProcessor "com.google.dagger:dagger-compiler:$rootProject.dagger2Version"
 }
