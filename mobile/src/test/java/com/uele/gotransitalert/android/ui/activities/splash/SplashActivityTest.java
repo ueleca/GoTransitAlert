@@ -14,46 +14,35 @@
  * limitations under the License.
  */
 
-package com.uele.gotransitalert.android.ui.activities.main;
+package com.uele.gotransitalert.android.ui.activities.splash;
+
+import android.app.Activity;
 
 import com.uele.gotransitalert.android.BuildConfig;
-import com.uele.gotransitalert.android.R;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
-import static org.hamcrest.CoreMatchers.equalTo;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(constants = BuildConfig.class,
-        sdk = 21,
-        manifest = "src/main/AndroidManifest.xml",
-        packageName = "com.uele.gotransitalert")
+@Config(constants = BuildConfig.class, sdk = 21)
+public class SplashActivityTest {
 
-public class RoboMainActivityTest {
-
-    private MainActivity mMainActivity;
+    private Activity mSplashActivity;
 
     @Before
     public void setUp() throws Exception {
-        mMainActivity = Robolectric.setupActivity( MainActivity.class );
+        mSplashActivity = Robolectric.setupActivity(SplashActivity.class);
     }
 
     @Test
-    public void shouldNotBeNull()  throws Exception {
-        assertNotNull(mMainActivity);
-    }
-
-    @Test
-    public void shouldHaveTitle() throws Exception {
-        assertThat(mMainActivity.getTitle().toString(),
-                equalTo (RuntimeEnvironment.application.getString(R.string.app_name)));
+    public void testSomething() throws Exception {
+        assertTrue(Robolectric.setupActivity(SplashActivity.class) != null);
     }
 }
+
