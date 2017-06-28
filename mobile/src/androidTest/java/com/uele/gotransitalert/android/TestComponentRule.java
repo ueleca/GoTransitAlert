@@ -27,7 +27,8 @@ import org.junit.rules.TestRule;
 import org.junit.runner.Description;
 import org.junit.runners.model.Statement;
 
-public class TestComponentRule implements TestRule {
+public class TestComponentRule
+        implements TestRule {
 
     private TestComponent mTestComponent;
     private Context mContext;

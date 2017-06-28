@@ -41,7 +41,7 @@ import static org.hamcrest.core.Is.is;
 
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class MainActivityTest {
+public class MainEspressoTest {
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule

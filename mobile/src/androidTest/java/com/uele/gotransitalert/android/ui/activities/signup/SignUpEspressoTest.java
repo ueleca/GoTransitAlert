@@ -35,7 +35,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 @RunWith(AndroidJUnit4.class)
-public class SignUpActivityTest {
+public class SignUpEspressoTest {
 
     @Rule
     public ActivityTestRule<SignUpActivity> ActivityTestRule
@@ -50,6 +50,7 @@ public class SignUpActivityTest {
      * Tests sign up error scenario, perform sign up with empty fields
      * Checks for the visibility and text of error messages
      */
+
     @Test
     public void testSignUpErrorScenarioWithEmptyFields(){
 
