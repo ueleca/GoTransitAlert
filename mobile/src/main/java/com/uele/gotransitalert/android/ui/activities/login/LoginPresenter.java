@@ -16,13 +16,19 @@
 
 package com.uele.gotransitalert.android.ui.activities.login;
 
+import com.androidnetworking.error.ANError;
+import com.uele.gotransitalert.android.R;
 import com.uele.gotransitalert.android.data.DataManager;
+import com.uele.gotransitalert.android.data.network.model.LoginRequest;
+import com.uele.gotransitalert.android.data.network.model.LoginResponse;
 import com.uele.gotransitalert.android.ui.base.BasePresenter;
+import com.uele.gotransitalert.android.utils.CommonUtils;
 import com.uele.gotransitalert.android.utils.rx.SchedulerProvider;
 
 import javax.inject.Inject;
 
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 
 public class LoginPresenter<V extends LoginAlertView> extends BasePresenter<V>
         implements LoginAlertPresenter<V> {
@@ -39,11 +45,64 @@ public class LoginPresenter<V extends LoginAlertView> extends BasePresenter<V>
     @Override
     public void onServerLoginClick(String email, String password) {
 
+        //validate email and password
+        if (email == null || email.isEmpty()) {
+            getAlertView().onError(R.string.empty_email);
+            return;
+        }
+
+        if (!CommonUtils.isEmailValid(email)) {
+            getAlertView().onError(R.string.invalid_email);
+            return;
+        }
+
+        if (password == null || password.isEmpty()) {
+            getAlertView().onError(R.string.empty_password);
+            return;
+        }
+
+        getAlertView().showLoading();
+
+        getCompositeDisposable().add(getDataManager()
+                .doServerLoginApiCall(new LoginRequest.ServerLoginRequest(email, password))
+                .subscribeOn(getSchedulerProvider().io())
+                .observeOn(getSchedulerProvider().ui())
+                .subscribe(new Consumer<LoginResponse>() {
+                    @Override
+                    public void accept(LoginResponse response) throws Exception {
+                        getDataManager().updateUserInfo(
+                                response.getAccessToken(),
+                                response.getUserId(),
+                                DataManager.LoggedInMode.LOGGED_IN_MODE_SERVER,
+                                response.getUserName(),
+                                response.getUserEmail(),
+                                response.getGoogleProfilePicUrl());
+
+                        if (!isViewAttached()) {
+                            return;
+                        }
+                        getAlertView().hideLoading();
+                        getAlertView().openMainActivity();
+
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                        if (!isViewAttached()) {
+                            return;
+                        }
+                        getAlertView().hideLoading();
+
+                        // handle the login error here
+                        if (throwable instanceof ANError) {
+                            ANError anError = (ANError) throwable;
+                            handleApiError(anError);
+                        }
+                    }
+                }));
     }
 }
-
-
-
 
 /*
 

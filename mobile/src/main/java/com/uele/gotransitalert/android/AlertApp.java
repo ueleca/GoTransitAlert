@@ -41,8 +41,7 @@ public abstract class AlertApp
     @Inject
     CalligraphyConfig mCalligraphyConfig;
 
-    public AlertApp() {
-    }
+    public AlertApp() {}
 
     @Override
     public void onCreate() {

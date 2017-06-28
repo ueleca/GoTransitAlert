@@ -61,6 +61,7 @@ ext {
     junitVersion = '4.12'
     espressoVersion = '2.2.2'
     mockitoVersion = '2.7.22'
+    robolectricVersion ='3.3.2'
 }
 
 
