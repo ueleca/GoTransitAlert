@@ -46,8 +46,7 @@ public class LoginActivity
     Button btnResetPassword;
     @BindView(R.id.loginSignUpBtn)
     Button btnSignUp;
-    @BindView(R.id.loginFacebookBtn)
-    Button btnFacebook;
+    //@BindView(R.id.loginFacebookBtn)Button btnFacebook;
 
     @BindView(R.id.loginEmailEdt)
     EditText inputEmail;
