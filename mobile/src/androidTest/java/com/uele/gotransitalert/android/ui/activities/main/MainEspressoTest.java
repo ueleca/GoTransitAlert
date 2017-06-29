@@ -18,13 +18,14 @@ package com.uele.gotransitalert.android.ui.activities.main;
 
 import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.ViewInteraction;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.espresso.matcher.BoundedMatcher;
 import android.support.test.filters.LargeTest;
-import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.v7.widget.Toolbar;
 
 import com.uele.gotransitalert.android.R;
+import com.uele.gotransitalert.android.TestComponentRule;
 
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
@@ -32,6 +33,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.RuleChain;
+import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -43,26 +46,14 @@ import static org.hamcrest.core.Is.is;
 @LargeTest
 public class MainEspressoTest {
 
+    public final TestComponentRule component =
+            new TestComponentRule(InstrumentationRegistry.getTargetContext());
+
+    public final IntentsTestRule<MainActivity> main =
+            new IntentsTestRule<>(MainActivity.class, false, false);
+
     @Rule
-    public ActivityTestRule<MainActivity> mActivityRule
-            = new ActivityTestRule<>(MainActivity.class);
-
-    @Before
-    public void setUp() throws Exception {
-
-    }
-
-    @Test
-    public void toolbarTitle() {
-        CharSequence title =
-                InstrumentationRegistry.getTargetContext().getString(R.string.title_activity_main);
-        matchToolbarTitle(title);
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
-    }
+    public TestRule chain = RuleChain.outerRule(component).around(main);
 
     private static ViewInteraction matchToolbarTitle(CharSequence title) {
         return onView(isAssignableFrom(Toolbar.class))
@@ -82,5 +73,22 @@ public class MainEspressoTest {
                 textMatcher.describeTo(description);
             }
         };
+    }
+
+    @Before
+    public void setUp() throws Exception {
+
+    }
+
+    @Test
+    public void toolbarTitle() {
+        CharSequence title =
+                InstrumentationRegistry.getTargetContext().getString(R.string.title_activity_main);
+        matchToolbarTitle(title);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+
     }
 }

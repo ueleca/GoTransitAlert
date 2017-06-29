@@ -25,7 +25,6 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.facebook.FacebookSdk;
 import com.uele.gotransitalert.android.R;
 import com.uele.gotransitalert.android.ui.activities.main.MainActivity;
 import com.uele.gotransitalert.android.ui.base.BaseActivity;
@@ -75,7 +74,7 @@ public class LoginActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(this);
+       // FacebookSdk.sdkInitialize(this);
         setContentView(R.layout.activity_login);
         getActivityComponent().inject(this);
         setUnBinder(ButterKnife.bind(this));

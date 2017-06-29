@@ -16,16 +16,20 @@
 
 package com.uele.gotransitalert.android.ui.activities.signup;
 
+import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.action.ViewActions;
-import android.support.test.rule.ActivityTestRule;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.uele.gotransitalert.android.R;
+import com.uele.gotransitalert.android.TestComponentRule;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.RuleChain;
+import org.junit.rules.TestRule;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
@@ -37,9 +41,14 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 @RunWith(AndroidJUnit4.class)
 public class SignUpEspressoTest {
 
+    public final TestComponentRule component =
+            new TestComponentRule(InstrumentationRegistry.getTargetContext());
+
+    public final IntentsTestRule<SignUpActivity> main =
+            new IntentsTestRule<>(SignUpActivity.class, false, false);
+
     @Rule
-    public ActivityTestRule<SignUpActivity> ActivityTestRule
-            = new ActivityTestRule<>(SignUpActivity.class);
+    public TestRule chain = RuleChain.outerRule(component).around(main);
 
     @Before
     public void setUp() throws Exception {
@@ -52,7 +61,7 @@ public class SignUpEspressoTest {
      */
 
     @Test
-    public void testSignUpErrorScenarioWithEmptyFields(){
+    public void testSignUpErrorScenarioWithEmptyFields() {
 
         //Clear text email and password
         onView(withId(R.id.signUpEmailEdt)).perform(ViewActions.clearText());

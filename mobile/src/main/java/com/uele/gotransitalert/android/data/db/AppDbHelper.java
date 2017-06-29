@@ -29,7 +29,8 @@ import javax.inject.Singleton;
 import io.reactivex.Observable;
 
 @Singleton
-public class AppDbHelper implements DbHelper {
+public class AppDbHelper
+        implements DbHelper {
 
     private final DaoSession mDaoSession;
 

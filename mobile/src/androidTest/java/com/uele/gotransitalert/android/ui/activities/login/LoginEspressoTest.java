@@ -49,7 +49,7 @@ public class LoginEspressoTest {
     public TestRule chain = RuleChain.outerRule(component).around(main);
 
     @Before
-    public void setup() {
+    public void setUp() throws Exception {
 
     }
 
