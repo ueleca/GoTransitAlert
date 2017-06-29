@@ -43,14 +43,14 @@ public class MainActivityTest {
     public void setUp() throws Exception {
         mMainActivity = Robolectric.setupActivity(MainActivity.class);
     }
+    @Test
+    public void shouldHaveTitle() throws Exception {
+        assertThat(mMainActivity.getTitle().toString(),
+                equalTo (RuntimeEnvironment.application.getString(R.string.app_name)));
+    }
 
     @Test
     public void testSomething() throws Exception {
         assertTrue(Robolectric.setupActivity(MainActivity.class) != null);
-    }
-
-    @Test
-    public void shouldHaveTitle() throws Exception {
-        assertThat(mMainActivity.getTitle().toString(), equalTo (RuntimeEnvironment.application.getString(R.string.app_name)));
     }
 }
