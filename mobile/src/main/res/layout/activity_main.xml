@@ -27,8 +27,6 @@
                 app:title="@string/app_name"
                 app:titleTextColor="@color/white" />
         </android.support.design.widget.AppBarLayout>
-
-
     </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
 
