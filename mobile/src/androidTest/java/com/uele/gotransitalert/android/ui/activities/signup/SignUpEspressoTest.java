@@ -23,8 +23,8 @@ import android.support.test.runner.AndroidJUnit4;
 
 import com.uele.gotransitalert.android.R;
 import com.uele.gotransitalert.android.TestComponentRule;
+import com.uele.gotransitalert.android.ui.activities.login.LoginActivity;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -63,6 +63,8 @@ public class SignUpEspressoTest {
     @Test
     public void testSignUpErrorScenarioWithEmptyFields() {
 
+        main.launchActivity(LoginActivity.getStartIntent(component.getContext()));
+
         //Clear text email and password
         onView(withId(R.id.signUpEmailEdt)).perform(ViewActions.clearText());
         onView(withId(R.id.signUpPasswordEdt)).perform(ViewActions.clearText());
@@ -78,10 +80,5 @@ public class SignUpEspressoTest {
         onView(withId(R.id.signUpPasswordEdt))
                 .check(matches(isDisplayed()))
                 .check(matches(withText(R.string.authentication_sign_up_error_password_empty)));
-    }
-
-    @After
-    public void tearDown() throws Exception {
-
     }
 }

@@ -20,8 +20,5 @@
 -dontwarn javax.annotation.**
 -dontwarn okio.**
 -dontwarn org.greenrobot.greendao.database.**
-<<<<<<< HEAD
 -dontwarn rx.**
-=======
--dontwarn rx.**
->>>>>>> origin/master
+

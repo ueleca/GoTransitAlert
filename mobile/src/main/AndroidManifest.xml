@@ -40,6 +40,9 @@
         <activity
             android:name=".ui.activities.login.LoginActivity"/>
 
+        <activity
+            android:name=".ui.activities.signup.SignUpActivity"/>
+
         <!-- Settings screen -->
         <activity
             android:name=".ui.activities.settings.SettingsActivity"
