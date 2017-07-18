@@ -170,9 +170,6 @@ dependencies {
     compile "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
     compile "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
 
-    // REST Interactions
-    compile "com.squareup.retrofit2:retrofit:$rootProject.retroFitVersion"
-    compile "com.squareup.retrofit2:converter-gson:$rootProject.retroFitVersion"
 
     compile 'com.jakewharton.byteunits:byteunits:0.9.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
