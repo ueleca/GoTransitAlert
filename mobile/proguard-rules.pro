@@ -21,4 +21,7 @@
 -dontwarn okio.**
 -dontwarn org.greenrobot.greendao.database.**
 -dontwarn rx.**
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
